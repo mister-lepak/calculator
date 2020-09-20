@@ -60,8 +60,13 @@ let createFunctions = () => {
       button.classList.add("blue");
       if (Object.keys(operator).includes(functionsSymbol[i])) {
         button.addEventListener("click", () => {
-          numLock = 1;
-          screen.innerText = parseFloat(num2);
+          if(numLock === 0){
+            numLock = 1;
+            screen.innerText = parseFloat(num2);
+           } else {
+             equal(num1,num2);
+             numLock = 1;
+           }
           formulaOperate = functionsSymbol[i];
         });
       } else {
